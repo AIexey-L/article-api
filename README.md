@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## тестовое задание
+В качестве тестового задания предлагаю реализовать один интересный endpoint с несколькими методами.
 
-Things you may want to cover:
+Предположим у нас есть сущность `Article`, у нее есть `title` (string) и `description` (text). Также у `Article` есть количество лайков - `likes_count` (integer) и дизлайков - `dislikes_count` (integer).
 
-* Ruby version
+Необходимо реализовать RESTful JSON API для методов articles#index, articles#like и articles#dislike
 
-* System dependencies
+По условиям задачи ко всем этим методам может быть много одновременных обращений.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Для реализации можно использовать любые гемы. За хорошие тесты бонусные очки.
