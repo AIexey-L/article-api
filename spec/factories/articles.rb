@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :article do
     title { Faker::Lorem.word }
-    description { Faker::Number.paragraph }
+    description { Faker::Lorem.paragraph }
   end
 end
