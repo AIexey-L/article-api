@@ -26,7 +26,7 @@ RSpec.describe 'Articles API', type: :request do
     before { get "/articles/#{article_id}" }
 
     context 'when the record exists' do
-      it 'returns the todo' do
+      it 'returns the article' do
         expect(json).not_to be_empty
         expect(json['id']).to eq(article_id)
       end
@@ -49,8 +49,8 @@ RSpec.describe 'Articles API', type: :request do
     end
   end
 
-  # Test suite for POST /todos
-  describe 'POST /todos' do
+  # Test suite for POST /articles
+  describe 'POST /articles' do
     # valid payload
     let(:valid_attributes) { { title: 'Learn Elm', description: 'Bestseller number one new york tims' } }
 
@@ -75,7 +75,7 @@ RSpec.describe 'Articles API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Created by can't be blank/)
+          .to match(/Validation failed: Description can't be blank/)
       end
     end
   end
@@ -85,7 +85,7 @@ RSpec.describe 'Articles API', type: :request do
     let(:valid_attributes) { { title: 'Shopping' } }
 
     context 'when the record exists' do
-      before { put "/articles/#{todo_id}", params: valid_attributes }
+      before { put "/articles/#{article_id}", params: valid_attributes }
 
       it 'updates the record' do
         expect(response.body).to be_empty
