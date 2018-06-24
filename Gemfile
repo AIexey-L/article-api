@@ -6,7 +6,7 @@ ruby '2.5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '~> 1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'pry', '~> 0.11.3'
@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
   gem 'rspec', '~> 3.7'
   gem 'factory_bot', '~> 4.10'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
