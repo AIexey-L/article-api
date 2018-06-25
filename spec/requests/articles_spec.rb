@@ -21,6 +21,24 @@ RSpec.describe 'Articles API', type: :request do
     end
   end
 
+  # Test suite for GET /articles/:id/likes
+  describe 'GET /articles/:id/likes' do
+    before { get "/articles/#{article_id}/likes" }
+
+    it 'returns number of likes' do
+      expect(json).to be_kind_of(Integer)
+    end
+    end
+
+  # Test suite for GET /articles/:id/dislikes
+  describe 'GET /articles/:id/dislikes' do
+    before { get "/articles/#{article_id}/dislikes" }
+
+    it 'returns number of dislikes' do
+      expect(json).to be_kind_of(Integer)
+    end
+  end
+
   # Test suite for GET /articles/:id
   describe 'GET /articles/:id' do
     before { get "/articles/#{article_id}" }

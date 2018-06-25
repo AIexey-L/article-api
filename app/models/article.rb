@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   validates_presence_of :title, :description
-  has_many :likes, dependent: :destroy
-  has_many :dislikes, dependent: :destroy
+  # Like and Dislike models are counters
+  has_one :like, dependent: :destroy
+  has_one :dislike, dependent: :destroy
 end

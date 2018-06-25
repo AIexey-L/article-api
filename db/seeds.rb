@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Dislike.destroy_all
+Like.destroy_all
+Article.destroy_all
+
+100.times do
+  Article.create!(
+    title: Faker::Lorem.word,
+    description: Faker::Lorem.paragraph,
+    )
+end
+
+Article.all.each do |article|
+  article.like = Like.create!(article_id: article.id, count: Faker::Number.number(3))
+  article.dislike = Dislike.create!(article_id: article.id, count: Faker::Number.number(3))
+end
+p "Created #{Article.count} articles"

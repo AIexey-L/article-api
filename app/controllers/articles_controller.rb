@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :update, :destroy]
+  before_action :set_article, only: [:show, :update, :destroy, :likes, :dislikes]
 
   # GET /articles
   def index
@@ -28,6 +28,18 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     head :no_content
+  end
+
+  # GET /articles/:id/likes
+  def likes
+    @likes = @article.like.count
+    json_response(@likes)
+  end
+
+  # GET /articles/:id/dislikes
+  def dislikes
+    @dislikes = @article.dislike.count
+    json_response(@dislikes)
   end
 
   private
