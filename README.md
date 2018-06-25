@@ -18,3 +18,21 @@
 2. `bundle install`
 3. `rails db:seed`
 4. `rails s`
+
+## routes
+GET /articles
+POST /articles (params - title, description)
+GET /articles/:id
+PUT /articles/:id (params - title, description)
+DELETE /articles/:id
+GET /articles/:id/likes
+GET /articles/:id/dislikes
+
+## комментарии
+
+Данная реализация только для возможности читать количество лайков/дизлайков.
+Если далее надо добавлять лайки/дизлайки, надо будет вынести создание лайков/дизлайков
+в отдельные контроллеры со своими whitelist параметрами. Дальнейшая реализация будет зависеть
+также от ответов на вопросы: по сколько лайков/дизлайков добавляется за один запрос? Нужно ли отдавать
+лайки/дизлайки вместе с articles?
+- 
