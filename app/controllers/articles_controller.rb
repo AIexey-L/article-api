@@ -32,13 +32,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/:id/likes
   def likes
-    @likes = @article.like.count
+    # Optimization of query (instead of @article.likes.count)
+    @likes = Like.where(article_id: @article_id).count
     json_response(@likes)
   end
 
   # GET /articles/:id/dislikes
   def dislikes
-    @dislikes = @article.dislike.count
+    # Optimization of query (instead of @article.dislikes.count)
+    @dislikes = Dislike.where(article_id: @article_id).count
     json_response(@dislikes)
   end
 
@@ -51,5 +53,6 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id])
+    @article_id = @article.id
   end
 end
